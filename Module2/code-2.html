@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="StudentForm" onsubmit="return ValidateForm()" >
+        <label for="name">Name:</label>
+        <input type="text" name="name"><br>
+
+        <label for="Roll">Roll Number:</label>
+        <input type="text" name="roll"><br>
+
+        <label for="age">Age:</label>
+        <input type="text" name="age"><br>
+
+        <label for="email">Email :</label>
+        <input type="text" name="email"><br>
+
+       
+        <input type="submit" value="submit" ><br>
+
+    </form>
+
+    <script>
+        // javascript validation form
+        function ValidateForm() {
+            var name = document.forms["studentform"]["name"].value;
+            var roll = document.forms["studentform"]["roll"].value;
+            var age = document.forms["studentform"]["age"].value;
+            var email = document.forms["studentform"]["email"].value;
+
+            // check for empty fields
+
+            if(name == "" || roll == "" || age =="" || email =="") {
+                alert("please fill out all fields");
+                return false;
+            }
+
+            // check age is number
+
+            if(isNaN(age)){
+                alert("Age must be a number");
+                return false;
+            }
+
+            // check email format
+            if(! validateEmail (email)) {
+                alert ("please enter a valid emal address");
+                return false;
+            }
+        }
+
+            // function to validate email format 
+
+            function validateEmail(email){
+                var re = /\S+@\S+\.\S+/;
+                return re.test{email};
+            }
+
+      
+    </script>
+</body>
+</html>
